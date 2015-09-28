@@ -1,0 +1,13 @@
+##TITLE=Parameter List, ParaVision 6.0.1
+##JCAMPDX=4.24
+##DATATYPE=Parameter Values
+##ORIGIN=Bruker BioSpin MRI GmbH
+##OWNER=mrsl
+$$ 2015-09-25 15:40:01.904 -0500  mrsl@CZC4170WSK
+$$ /opt/PV6.0.1/data/mrsl/20150925_152042_MRSL_Development_1_13/7/pdata/1/procs
+$$ process /opt/PV6.0.1/prog/bin/parxserver
+##$OFFSET=57.8080777344771
+##$SF=300.323273000943
+##$YMAX_p=32626
+##$YMIN_p=0
+##END=

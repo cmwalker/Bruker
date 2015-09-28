@@ -1,0 +1,11 @@
+##TITLE=Parameter List, ParaVision 6.0.1
+##JCAMPDX=4.24
+##DATATYPE=Parameter Values
+##ORIGIN=Bruker BioSpin MRI GmbH
+##OWNER=mrsl
+$$ 2015-09-25 15:24:23.861 -0500  mrsl@CZC4170WSK
+$$ /opt/PV6.0.1/data/mrsl/20150925_152042_MRSL_Development_1_13/AdjResult/2.16.756.5.5.100.8323328.17135.1443212594.9/result.jcamp
+$$ process /opt/PV6.0.1/prog/mod/pipe
+##$PVM_StudyRefPow=(0.318823180224933, <Adj by AdjRefG (protocol ADJ_REFG)>)
+##END=
+$$ File finished by PARX at 2015-09-25 15:24:23.861 -0500

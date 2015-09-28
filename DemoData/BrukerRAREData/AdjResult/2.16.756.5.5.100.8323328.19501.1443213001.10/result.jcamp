@@ -1,0 +1,23 @@
+##TITLE=Parameter List, ParaVision 6.0.1
+##JCAMPDX=4.24
+##DATATYPE=Parameter Values
+##ORIGIN=Bruker BioSpin MRI GmbH
+##OWNER=mrsl
+$$ 2015-09-25 15:30:01.662 -0500  mrsl@CZC4170WSK
+$$ /opt/PV6.0.1/data/mrsl/20150925_152042_MRSL_Development_1_13/AdjResult/2.16.756.5.5.100.8323328.19501.1443213001.10/result.jcamp
+$$ process /opt/PV6.0.1/prog/mod/pipe
+##$PVM_FrqAdj1H=300.323273000943
+##$PVM_FrqAdj1HPpm=4.7
+##$PVM_NucleiPpmRef=( 20 )
+(<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) 
+(<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) 
+(<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) (<none>, 0) 
+(<none>, 0) (<none>, 0)
+##$PVM_NAdjShimsets=1
+##$PVM_AdjShimsets=( 1 )
+(0, 1393, 0, 0, 0, -1060, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+##$PVM_AdjActShimset=(0, 1393, 0, 0, 0, -1060, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+##END=
+$$ File finished by PARX at 2015-09-25 15:30:01.662 -0500

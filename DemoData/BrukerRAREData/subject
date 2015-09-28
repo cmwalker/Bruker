@@ -1,0 +1,94 @@
+##TITLE=Parameter List, ParaVision 6.0.1
+##JCAMPDX=4.24
+##DATATYPE=Parameter Values
+##ORIGIN=Bruker BioSpin MRI GmbH
+##OWNER=mrsl
+$$ 2015-09-25 15:32:42.646 -0500  mrsl@CZC4170WSK
+$$ /opt/PV6.0.1/data/mrsl/20150925_152042_MRSL_Development_1_13/subject
+$$ process /opt/PV6.0.1/prog/bin/parxserver
+##$SUBJECT_version_nr=1
+##$SUBJECT_id=( 60 )
+<MRSL Development>
+##$SUBJECT_instance_uid=( 65 )
+<2.16.756.5.5.100.8323328.7478.1442236993.1>
+##$SUBJECT_instance_creation_date=(1442236993, 820, -300)
+$$ @vis= SUBJECT_version_nr SUBJECT_id SUBJECT_instance_uid
+##$SUBJECT_name_string=( 64 )
+<MRSL Development>
+##$SUBJECT_name=(<MRSL Development>, <>)
+##$SUBJECT_dbirth=( 12 )
+<14 Sep 2015>
+$$ @vis= SUBJECT_instance_creation_date SUBJECT_name_string SUBJECT_name
+##$SUBJECT_type=Quadruped
+##$SUBJECT_sex=( 8 )
+<unknown>
+##$SUBJECT_sex_animal=UNKNOWN
+##$SUBJECT_remarks=( 2048 )
+<Use this subject for all developmental work in MRSL.\
+Methods will be shared from here to SAIF when ready.>
+$$ @vis= SUBJECT_dbirth SUBJECT_type SUBJECT_sex SUBJECT_sex_animal
+##$SUBJECT_study_name=( 64 )
+<20150925_RAREReconDev01>
+##$SUBJECT_study_nr=13
+##$SUBJECT_study_instance_uid=( 65 )
+<2.16.756.5.5.100.8323328.16413.1443212442.3>
+$$ @vis= SUBJECT_remarks SUBJECT_study_name SUBJECT_study_nr
+##$SUBJECT_weight=0.001
+##$SUBJECT_referral=( 64 )
+<mrsl>
+##$SUBJECT_purpose=( 2048 )
+<>
+$$ @vis= SUBJECT_study_instance_uid SUBJECT_weight SUBJECT_referral
+##$SUBJECT_pos_valid=Yes
+##$SUBJECT_entry=SUBJ_ENTRY_HeadFirst
+##$SUBJECT_position=SUBJ_POS_Prone
+##$SUBJECT_date=<2015-09-25T15:20:42,529-0500>
+$$ @vis= SUBJECT_purpose SUBJECT_pos_valid SUBJECT_entry SUBJECT_position
+##$SUBJECT_abs_date=(1443212442, 529, -300)
+##$SUBJECT_comment=( 2048 )
+<>
+##$SUBJECT_study_adj_config=( <MRI_Default> , <MRI Default> )
+##$SUBJECT_study_gradient_system=( 10240 )
+<$Bis,1,20070906,2048,GRADSYS,1#$Production,W3307165,0115,00,03,BFR,
+20150226#$Name,B-GA12SHP INSERT FOR BGA20S BC70/30#$GradSystem,1.0,27,S116,0,,
+1#$GradTempSensor,1.0,1,PT100,60#$GradTempSensor,1.0,2,PT100,
+60#$GradTempSensor,1.0,3,PT100,60#$GradTempSensor,1.0,4,PT100,
+60#$GradTempSensor,1.0,5,PT100,75#$GradTempSensor,1.0,6,PT100,75#$GradCoil,
+1.0,B0,S,2500,1.4,,130,10,#$GradCoil,1.0,X,S,935,0.12,,500,300,2430#$GradCoil,
+1.0,Y,S,935,0.11,,500,300,1750#$GradCoil,1.0,Z,S,935,0.10,,500,300,
+2025#$EndBis,86,92#>
+##$SUBJECT_study_shim_system=( 10240 )
+<$Bis,1,20090903,2048,SHIMSYS,1#$Production,W3307165,0115,00,03,BFR,
+20150226#$Name,B-GA12SHP INSERT FOR BGA20S BC70/30#$ShimSystem,1.0,27,S116,7,,
+#$ShimTempSensor,1.0,1,PTC,#$ShimCoil,1.0,1,3.2,150,10,#$ShimCoil,1.0,2,2.9,
+150,10,#$ShimCoil,1.0,3,2.9,150,10,#$ShimCoil,1.0,4,3.6,150,10,#$ShimCoil,1.0,
+5,3.6,150,10,#$ShimCoil,1.0,6,4.4,150,10,#$ShimCoil,1.0,7,1.0,150,10,
+#$ShimFunction,1.0,1,Z2,2,250#$ShimFunction,1.0,2,ZX,2,260#$ShimFunction,1.0,
+3,ZY,2,260#$ShimFunction,1.0,4,2XY,2,110#$ShimFunction,1.0,5,X2-Y2,2,
+110#$ShimFunction,1.0,6,Z3,3,10#$ShimFunction,1.0,7,Z4,4,1#$ShimMatrix,1.0,1,
+1,1.0#$ShimMatrix,1.0,2,2,1.0#$ShimMatrix,1.0,3,3,1.0#$ShimMatrix,1.0,4,4,
+1.0#$ShimMatrix,1.0,5,5,1.0#$ShimMatrix,1.0,6,6,1.0#$ShimMatrix,1.0,7,7,
+1.0#$EndBis,3B,DE#>
+##$SUBJECT_study_coil_configuration=( 65 )
+<2.16.756.5.5.100.8323328.7502.1442236873.4>
+##$SUBJECT_study_coil_table=( 10240 )
+<$Bis,1,20150914,2048,COILTABLE,1#$Name,RF RES 300 1H/13C 075/040 LIN/LIN TR 
+(BMRIDE T20053V3/0027)#$Id,1.0,2.16.756.5.5.100.8323328.7502.1442236873.4,,
+16b8#$PMap,1.0,1,RF RES 300 1H/13C 075/040 LIN/LIN TR,BMRIDE,T20053V3,0027,H,
+TX/RX 1H/19F (1),TX/RX XBB#$PCAuxInfo,1.0,1,1,,PreampProbe,2,PreampProbe,2,,,
+#$PCAuxInfo,1.0,1,2,,PreampProbe,1,PreampProbe,1,,,#$EndBis, E2, 78#>
+##$SUBJECT_study_coils=( 2, 10240 )
+<$Bis,1,20150114,2048,PICS,1#$Prd,T20053V3,0027,00.02,0,BMRIDE,20150114#$Nam,
+RF RES 300 1H/13C 075/040 LIN/LIN TR#$PComp,1.0,MRI,,300#$PType,1.0,
+MRI#$PACoi,1.0,2#$PMRI,1.0,Volume,1,2,,SN#$PChan,1.0,1H,,,40,400,2.4,0.6,5,
+FALSE#$PChan,1.0,13C,,,40,300,2.4,0.6,5,FALSE#$PCoil,1.0,1,20,1,1H#$PCoil,1.0,
+2,20,1,13C#$PCConn,1.0,1,T/R,,1,TXRX,,,0,0#$PCConn,1.0,2,T/R,,2,TXRX,,,0,
+0#$EndBis,B8,A8#> <$Bis,1,20150114,2048,PICS,1#$Prd,T20053V3,0027,00.02,0,
+BMRIDE,20150114#$Nam,RF RES 300 1H/13C 075/040 LIN/LIN TR#$PComp,1.0,MRI,,
+300#$PType,1.0,MRI#$PACoi,1.0,2#$PMRI,1.0,Volume,2,2,,SN#$PChan,1.0,1H,,,40,
+400,2.4,0.6,5,FALSE#$PChan,1.0,13C,,,40,300,2.4,0.6,5,FALSE#$PCoil,1.0,1,20,1,
+1H#$PCoil,1.0,2,20,1,13C#$PCConn,1.0,1,T/R,,1,TXRX,,,0,0#$PCConn,1.0,2,T/R,,2,
+TXRX,,,0,0#$EndBis,ED,72#>
+$$ @vis= SUBJECT_date SUBJECT_abs_date SUBJECT_comment SUBJECT
+##END=
+$$ File finished by PARX at 2015-09-25 15:32:42.646 -0500
