@@ -32,12 +32,12 @@ complexFID = rawFID(1:2:end)+1i*rawFID(2:2:end); % stich real and imaginary poin
 %% Reshape the FIDS
 tmp = reshape(complexFID,tmpNPoints,nSlices,nPhaseEncodes);
 tmp = tmp(1:nPoints,:,:);
-Images = zeros(nPoints,nPhaseEncodes,nSlices);
+Images = zeros(nPhaseEncodes,nPoints,nSlices);
 FIDs = zeros(nPoints,nPhaseEncodes,nSlices);
 % rearange to have slices be the outer loop
 for i = 1:nSlices
     FIDs(:,:,i) = squeeze(tmp(:,i,:));
-    Images(:,:,i) = abs(fftshift(fftshift(fft2(squeeze(FIDs(:,:,i))),1),2));
+    Images(:,:,i) = imrotate(abs(fftshift(fftshift(fft2(squeeze(FIDs(:,:,i))),1),2)),-90);
 end
 %% Get X and Y Axis assuming read out is X-direction (probably should not be hard coded
 xAxis = linspace(-FOV(1)/2,FOV(1)/2,nPoints);
