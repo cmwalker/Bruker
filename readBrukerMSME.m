@@ -1,4 +1,4 @@
-function [ FIDs, Images, xAxis, yAxis, header ] = readBrukerFLASH( studyDirectory, scanNo )
+function [ FIDs, Images, xAxis, yAxis, header ] = readBrukerMSME( studyDirectory, scanNo )
 %READBRUKERRARE Takes the study directory (string) and the scan number (integer) of a RARE scan and
 %returns the reshaped raw fids [ReadOut,PhaseEncode,Slices] and the images
 %[X,Y,Slices]
@@ -8,7 +8,7 @@ import Bruker.*
 % use subfunction to read Raw Bruker data
 [inFIDS, header] = readBrukerReadOut(studyDirectory, scanNo);
 % Check header method
-if( ~all(header.Method == '<Bruker:FLASH>'))
+if( ~all(header.Method == '<Bruker:MSME>'))
     error('Header not for Bruker Rare method. method is %s\n',header.Method);
 end
 nPoints = header.PVM_DigNp; % number of readout points
