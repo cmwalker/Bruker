@@ -16,16 +16,13 @@ nPhaseEncodes = header.PVM_EncMatrix(2); % number of phase encodes
 nSlices = sum(header.PVM_SPackArrNSlices); % number of slices
 nEchoImages = header.PVM_NEchoImages;
 FOV = header.PVM_Fov;
-tmp = reshape(inFIDS,nPoints,nEchoImages,nSlices,nPhaseEncodes);
-Images = zeros(nPhaseEncodes,nPoints,nEchoImages,nSlices);
-FIDs = zeros(nPoints,nPhaseEncodes,nEchoImages,nSlices);
+tmp = reshape(inFIDS,nPoints,nSlices,nPhaseEncodes);
+Images = zeros(nPhaseEncodes,nPoints,nSlices);
+FIDs = zeros(nPoints,nPhaseEncodes,nSlices);
 % rearange to have slices be the outer loop
 for i = 1:nSlices
-    for j = 1:nEchoImages;
-        FIDs(:,:,j,i) = squeeze(tmp(:,j,i,:));
-        Images(:,:,j,i) = imrotate(abs(fftshift(fftshift(fft2(squeeze(...
-            FIDs(:,:,j,i))),1),2)),-90);
-    end
+    FIDs(:,:,i) = squeeze(tmp(:,i,:));
+    Images(:,:,i) = imrotate(abs(fftshift(fftshift(fft2(squeeze(FIDs(:,:,i))),1),2)),-90);
 end
 %% Get X and Y Axis assuming read out is X-direction (probably should not be hard coded
 xAxis = linspace(-FOV(1)/2,FOV(1)/2,nPoints);

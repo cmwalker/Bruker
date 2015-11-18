@@ -7,7 +7,11 @@ import Bruker.*
 % use subfunction to read Raw Bruker data
 [inFIDS, header] = readBrukerReadOut(studyDirectory, scanNo);
 % Check header method
+<<<<<<< HEAD
 if( ~any(strcmp(header.Method,{'<Bruker:RARE>','RARE'})))
+=======
+if( ~any(strcmp({'<Bruker:RARE>','RARE'},header.Method)))
+>>>>>>> origin/master
     error('Header not for Bruker Rare method. method is %s\n',header.Method);
 end
 nPoints = header.PVM_DigNp; % number of readout points
