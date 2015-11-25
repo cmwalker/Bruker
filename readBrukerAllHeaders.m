@@ -23,7 +23,7 @@ tmpNames = fieldnames(acqp);
 duplicateNames = {'TITLE','JCAMPDX','DATATYPE','ORIGIN','OWNER'};
 for i = 1:numel(duplicateNames)
     if(isfield(acqp,duplicateNames{i}))
-        tmpNames(strcmp(tmpNames,duplicateNames{i})) = {};
+        tmpNames(strcmp(tmpNames,duplicateNames{i})) = [];
     end
 end
 for i = 1:numel(tmpNames)
