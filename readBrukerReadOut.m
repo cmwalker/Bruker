@@ -30,5 +30,4 @@ complexFID = rawFID(1:2:end)+1i*rawFID(2:2:end); % stich real and imaginary poin
 remander = numel(complexFID)/tmpNPoints;
 %% Reshape the FIDS
 tmp = reshape(complexFID,tmpNPoints,remander);
-iDelay = header.PVM_DigShift;
-FIDs = tmp(iDelay:nPoints,:);
+FIDs = tmp(1:nPoints,:);
