@@ -92,4 +92,4 @@ for index = 1:length(rawitems)
         eval(cmdstr);
     end
 end
-    
+fclose(fid);
