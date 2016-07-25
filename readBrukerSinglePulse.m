@@ -17,7 +17,7 @@ trAxis = 0:Tr:Tr*(nTrs-1); % calculate repetition axis
 FIDs = reshape(inFIDs,nPoints,nTrs); % reshape fid for repetitions
 FIDs = circshift(FIDs,-filterPoints,1); % Shift fid for digial filtering
 FIDs(end-filterPoints:end,:) = 0; % set filter points to zero
-Spectrum = fftshift(fft(squeeze(FIDs),[],1),1);; % Calculate the spectrum
+Spectrum = fftshift(fft(squeeze(FIDs),[],1),1); % Calculate the spectrum
 tAxis = linspace(0,header.PVM_DigDur-header.PVM_DigDw,nPoints); % calculate the time axis for each FID
 % Calculate the ppm axis
 ppmAxis = linspace(0,header.PVM_SpecSW,nPoints);
