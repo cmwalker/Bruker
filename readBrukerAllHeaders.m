@@ -13,13 +13,14 @@ import Bruker.*
 headers = struct();
 method = readBrukerHeader(fullfile(studyDirectory,num2str(scanNo),'method'));
 acqp = readBrukerHeader(fullfile(studyDirectory,num2str(scanNo),'acqp'));
+subject = readBrukerHeader(fullfile(studyDirectory,'subject'));
+% Fill with subject info
+tmpNames = fieldnames(subject);
+for i = 1:numel(tmpNames)
+    headers.(tmpNames{i}) = subject.(tmpNames{i});   
+end
 % Fill with method info
 tmpNames = fieldnames(method);
-for i = 1:numel(tmpNames)
-    headers.(tmpNames{i}) = method.(tmpNames{i});   
-end
-% Fill with acqp info
-tmpNames = fieldnames(acqp);
 duplicateNames = {'TITLE','JCAMPDX','DATATYPE','ORIGIN','OWNER'};
 for i = 1:numel(duplicateNames)
     if(isfield(acqp,duplicateNames{i}))
@@ -28,7 +29,20 @@ for i = 1:numel(duplicateNames)
 end
 for i = 1:numel(tmpNames)
     if(isfield(headers,tmpNames{i}))
-        warning('*WARNING* %s is a field name in both the method and acqp file. Using the value from the acqp file/n',tmpNames{i})
+        warning('*WARNING* %s is a field name in both the method and subject file. Using the value from the method file/n',tmpNames{i})
+    end
+    headers.(tmpNames{i}) = method.(tmpNames{i});   
+end
+% Fill with acqp info
+tmpNames = fieldnames(acqp);
+for i = 1:numel(duplicateNames)
+    if(isfield(acqp,duplicateNames{i}))
+        tmpNames(strcmp(tmpNames,duplicateNames{i})) = [];
+    end
+end
+for i = 1:numel(tmpNames)
+    if(isfield(headers,tmpNames{i}))
+        warning('*WARNING* %s is a field name in both the method/subjec and acqp file. Using the value from the acqp file/n',tmpNames{i})
     end
     headers.(tmpNames{i}) = acqp.(tmpNames{i});   
 end

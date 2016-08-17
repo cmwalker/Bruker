@@ -60,6 +60,9 @@ for index = 1:length(rawitems)
         else
             cmdstr = '';
             num_parens = length(find(values=='('));
+            if isempty(values)
+                continue
+            end
             if((values(1)=='<' || values(2)=='<') && values(end)=='>')
                 if(values(1)=='<')
                     cmdstr = ['struct.' name '=values(2:end-1);'];
