@@ -10,7 +10,7 @@ function [ FIDs, header ] = readBrukerReadOut( studyDirectory, scanNo )
 %   hardcoded probalby want to make this a optional input value
 import Bruker.*
 % Load in header
-header = Bruker.readBrukerAllHeaders(studyDirectory,scanNo);
+header = readBrukerAllHeaders(studyDirectory,scanNo);
 nPoints = header.PVM_DigNp; % number of readout points
 minPoints = 128; % minimum number of digitizer points,
 %% account for digitizer automatic zero padding

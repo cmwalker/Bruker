@@ -25,7 +25,8 @@ nPoints = header.PVM_Matrix(1);
 nBands = nPoints/pointsPerBand;
 nProjections = header.PVM_Matrix(2);
 nSlices = sum(header.PVM_SPackArrNSlices);
-projAngle = 111;
+projAngle = header.MDA_Pra1;
+iZeroProjection = header.MDA_ProZero+1;
 readBandwidth = header.PVM_DigSw;
 readBandwidthPPM = readBandwidth/75;
 PVM_RepetitionTime = header.PVM_RepetitionTime;
@@ -51,6 +52,10 @@ end
 for j = 1:nSlices
 FIDs = squeeze(reshapedFIDs(:,j,:));
 projections = fftshift(fft(FIDs,[],1),1);
+if iZeroProjection > 0
+    spectrum = projections(:,iZeroProjection);
+    projections(:,iZeroProjection) = [];
+end
 if verbose
     figure('Position',[634 102 632 824],'Name','Raw Projections')
     xAxis = linspace(-1,1,nPoints);

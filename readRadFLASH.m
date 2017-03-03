@@ -1,11 +1,10 @@
 function [ FIDs, Images, xAxis, yAxis, header, Sinogram ] =...
-    readRadBrukerFLASH( studyDirectory, scanNo )
+    readRadFLASH( studyDirectory, scanNo)
 %READBRUKERRARE Takes the study directory (string) and the scan number (integer) of a RARE scan and
 %returns the reshaped raw fids [ReadOut,PhaseEncode,Slices] and the images
 %[X,Y,Slices]
 %   Detailed explanation goes here
 import Bruker.*
-verbose = false;
 % use subfunction to read Raw Bruker data
 [inFIDS, header] = readBrukerReadOut(studyDirectory, scanNo);
 % Check header method
@@ -14,7 +13,7 @@ if( ~any(strcmp(header.Method,{'<User:radFLASH>'})))
 end
 nPoints = header.PVM_DigNp; % number of readout points
 nProjections = header.PVM_EncMatrix(2); % number of phase encodes
-projAngle = 111;
+projAngle = header.MDA_Pra1;
 projAngles = (0:(nProjections-1))*projAngle;
 nSlices = sum(header.PVM_SPackArrNSlices); % number of slices
 % projAngles = header.PVM_EncValues1.*2*pi; % Projection Angles
@@ -29,13 +28,13 @@ for i = 1:nSlices
     Sinogram(:,:,i) = fftshift(fft(squeeze(FIDs(:,:,i)),[],1),1);
     Images(:,:,i) = iradon(abs(squeeze(Sinogram(:,:,i))),projAngles,...
         'linear','Ram-Lak',1,nPoints);
-    if verbose
-        figure
-        subplot(1,2,1)
-        imagesc(abs(squeeze(Sinogram(:,:,i))))
-        subplot(1,2,2)
-        imagesc(abs(squeeze(Images(:,:,i))))
-    end
+%     if verbose
+%         figure
+%         subplot(1,2,1)
+%         imagesc(abs(squeeze(Sinogram(:,:,i))))
+%         subplot(1,2,2)
+%         imagesc(abs(squeeze(Images(:,:,i))))
+%     end
 end
 %% Get X and Y Axis assuming read out is X-direction (probably should not be hard coded
 xAxis = linspace(-FOV(1)/2,FOV(1)/2,nPoints);
