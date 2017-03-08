@@ -13,8 +13,9 @@ if( ~any(strcmp(header.Method,{'<User:radFLASH>'})))
 end
 nPoints = header.PVM_DigNp; % number of readout points
 nProjections = header.PVM_EncMatrix(2); % number of phase encodes
+nDummyScans = header.PVM_DummyScans;
 projAngle = header.MDA_Pra1;
-projAngles = (0:(nProjections-1))*projAngle;
+projAngles = (nDummyScans:(nProjections-1+nDummyScans))*projAngle;
 nSlices = sum(header.PVM_SPackArrNSlices); % number of slices
 % projAngles = header.PVM_EncValues1.*2*pi; % Projection Angles
 FOV = header.PVM_Fov;
