@@ -29,8 +29,8 @@ for i = 1:nSlices
     tmp2(:,:,i) = reshape(squeeze(tmp(:,:,i,:)),nPoints,nPhaseEnchodes);
 end
 FIDs = tmp2(:,phaseEnchodeOrder,:); % reorder the phase encode data
-% Fourier transform the Data to get images that also need a -90 degree rotation
-Images = imrotate(fftshift(fftshift(fft2(FIDs),1),2),-90);
+% Fourier transform the Data to get images
+Images = fftshift(fftshift(fft2(FIDs),1),2);
 %% Get X and Y Axis assuming read out is X-direction (probably should not be hard coded
 xAxis = linspace(-FOV(1)/2,FOV(1)/2,nPoints);
 yAxis = linspace(-FOV(2)/2,FOV(2)/2,nPhaseEnchodes);
