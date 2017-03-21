@@ -46,5 +46,9 @@ for i = 1:nSlices
     FIDs(:,:,i) = squeeze(tmp(:,i,:)).*lineBroadeingWindow;
     Spectrums(:,:,i) = fftshift(fft(squeeze(FIDs(:,:,i)),[],1),1);
 end
+%% Reformat Slice order to match matlab indexing KAM
+[~,sliceReorder] = sort(header.PVM_ObjOrderList);
+FIDs = FIDs(:,:,sliceReorder); % reorder the slices
+Spectrums = Spectrums(:,:,sliceReorder); % reorder the slices
 end
 

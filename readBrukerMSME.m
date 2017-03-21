@@ -21,12 +21,17 @@ Images = zeros(nPhaseEncodes,nPoints,nEchoImages,nSlices);
 FIDs = zeros(nPoints,nPhaseEncodes,nEchoImages,nSlices);
 % rearange to have slices be the outer loop
 for i = 1:nSlices
-    for j = 1:nEchoImages;
+    for j = 1:nEchoImages
         FIDs(:,:,j,i) = squeeze(tmp(:,j,i,:));
-        Images(:,:,j,i) = imrotate(abs(fftshift(fftshift(fft2(squeeze(...
-            FIDs(:,:,j,i))),1),2)),-90);
+        Images(:,:,j,i) = abs(fftshift(fftshift(fft2(squeeze(...
+            FIDs(:,:,j,i))),1),2));
     end
 end
+%% Reformat Slice order to match matlab indexing KAM
+[~,sliceReorder] = sort(header.PVM_ObjOrderList);
+FIDs = FIDs(:,:,:,sliceReorder); % reorder the slices
+Images = Images(:,:,:,sliceReorder); % reorder the slices
+
 %% Get X and Y Axis assuming read out is X-direction (probably should not be hard coded
 xAxis = linspace(-FOV(1)/2,FOV(1)/2,nPoints);
 yAxis = linspace(-FOV(2)/2,FOV(2)/2,nPhaseEncodes);
