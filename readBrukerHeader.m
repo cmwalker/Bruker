@@ -30,6 +30,13 @@ for index = 1:length(rawitems)
             break;
         end
     end
+    % KAM add for error with PV6 method headers
+    if(length(currstring)>=20)
+        if(strcmp(currstring(1:20), 'PVM_StartupShimList='))
+            break;
+        end
+    end
+    % end add
     [name value] = strtok(currstring, '=');
     if(isempty(value))
         continue;
@@ -60,9 +67,6 @@ for index = 1:length(rawitems)
         else
             cmdstr = '';
             num_parens = length(find(values=='('));
-            if isempty(values)
-                continue
-            end
             if((values(1)=='<' || values(2)=='<') && values(end)=='>')
                 if(values(1)=='<')
                     cmdstr = ['struct.' name '=values(2:end-1);'];
