@@ -1,8 +1,26 @@
 function struct = readBrukerHeader(filename)
 
 filename;
+% Open the File
 fid = fopen(filename, 'r', 'l');
+% Read in data to a cell delimited by ## and $$
+C = textscan(fid,'%s','Delimiter',{'##','$$'});
+tmp = C{1,1}; %Strip the wrapper cell
+% Remove empy cell entries
+for i = numel(tmp):-1:1
+if isempty(tmp{i})
+tmp(i) = [];
+end
+end
+for i = 1:numel(tmp)
+    [names{i} values{i}] = strtok(tmp{i}, '=');
+end
+fclose(fid);
 
+
+
+filename;
+fid = fopen(filename, 'r', 'l');
 if (fid==-1)
     error('File not found in readBrukerHeader');
 end
@@ -41,13 +59,12 @@ for index = 1:length(rawitems)
     if(isempty(value))
         continue;
     end
-    name = strrep(name,'-','_');%replace Dash with underscore to avoid error
-    name = strrep(name,' ','_');%replace Space with underscore to avoid error
     %Now, we parse value...
     %There are two possibilities.  Either the value is an array, or it
     %isn't.
     if(strcmp(value, '='))
         eval(['struct.' name '=[];']);
+        output.(name) = [];
         continue;
     end
     %Remove all newlines
@@ -97,8 +114,10 @@ for index = 1:length(rawitems)
         %Single-value stuff
         num = str2num(value);
         if(~isempty(num))
+            output.(name) = num;
             cmdstr = ['struct.' name '=' value ';'];
         else
+            output.(name) = value;
             cmdstr = ['struct.' name '= ''' value ''';'];
         end
         eval(cmdstr);
